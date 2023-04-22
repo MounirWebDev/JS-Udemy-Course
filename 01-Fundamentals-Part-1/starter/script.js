@@ -69,6 +69,28 @@ console.log((7 - 5) * 2);
 console.log(7 - 5 * 2);
 
 // **** CODING CHALLENGE #1 ****
+let massMark = 78, 
+heightMark = 1.69,
+massJohn = 92,
+heightJohn = 1.95
 
+let BMI_mark = massMark / (heightMark * heightMark)
+let BMI_john = massJohn / (heightJohn * heightJohn)
+
+let markHigherBMI = BMI_mark > BMI_john
+
+console.log('**** CODE CHALLENGE #1 ****');
+console.log('Marks BMI: ' +  BMI_mark, 'Johns BMI: ' + BMI_john, markHigherBMI);
+
+massMark = 95
+heightMark = 1.88
+massJohn = 85
+heightJohn = 1.76
+
+BMI_mark = massMark / (heightMark * heightMark)
+BMI_john = massJohn / (heightJohn * heightJohn)
+markHigherBMI = BMI_mark > BMI_john
+
+console.log('Marks BMI: ' +  BMI_mark, 'Johns BMI: ' + BMI_john, markHigherBMI);
 
 
