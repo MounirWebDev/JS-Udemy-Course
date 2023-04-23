@@ -93,4 +93,31 @@ markHigherBMI = BMI_mark > BMI_john
 
 console.log('Marks BMI: ' +  BMI_mark, 'Johns BMI: ' + BMI_john, markHigherBMI);
 
+// 7- Strings Strings and Template Literals
 
+console.log("I'm " + firstName + ", and I'm " + age + " years old!");
+console.log(`I'm ${firstName} and I'm ${age} years old!`)
+console.log(`multiple
+line 
+${1 + 1} lines`)
+
+// 8- If / Else statements
+let hour = 18
+if(hour >= 18){
+    console.log('Good Afternoon!');
+}
+else {
+    console.log('Good Morning');
+}
+
+// **** CODING CHALLENGE #2 ****
+
+if(BMI_john > BMI_mark){
+    console.log('Marks BMI is less than Johns BMI');
+}
+else{
+    console.log('Johns BMI is less then Marks BMI');
+}
+
+console.log(`- Johns BMI is ${BMI_john}.
+- Marks BMI is ${BMI_mark}.`);
