@@ -36,7 +36,7 @@ let age = 18
 age = 19
 let empty
 
-const  YEAR = 2004
+const YEAR = 2004
 
 job = 'studen'
 var job;
@@ -55,9 +55,9 @@ console.log('Abcire' + ' ' + 'Mounir')
 let x = 10 - 5;
 x++
 x--
-x+=5
-x-=5
-x*=5
+x += 5
+x -= 5
+x *= 5
 console.log(x);
 //comparison operators
 console.log(x > 5)// >, <, >=, <=
@@ -69,10 +69,10 @@ console.log((7 - 5) * 2);
 console.log(7 - 5 * 2);
 
 // **** CODING CHALLENGE #1 ****
-let massMark = 78, 
-heightMark = 1.69,
-massJohn = 92,
-heightJohn = 1.95
+let massMark = 78,
+    heightMark = 1.69,
+    massJohn = 92,
+    heightJohn = 1.95
 
 let BMI_mark = massMark / (heightMark * heightMark)
 let BMI_john = massJohn / (heightJohn * heightJohn)
@@ -80,7 +80,7 @@ let BMI_john = massJohn / (heightJohn * heightJohn)
 let markHigherBMI = BMI_mark > BMI_john
 
 console.log('**** CODE CHALLENGE #1 ****');
-console.log('Marks BMI: ' +  BMI_mark, 'Johns BMI: ' + BMI_john, markHigherBMI);
+console.log('Marks BMI: ' + BMI_mark, 'Johns BMI: ' + BMI_john, markHigherBMI);
 
 massMark = 95
 heightMark = 1.88
@@ -91,7 +91,7 @@ BMI_mark = massMark / (heightMark * heightMark)
 BMI_john = massJohn / (heightJohn * heightJohn)
 markHigherBMI = BMI_mark > BMI_john
 
-console.log('Marks BMI: ' +  BMI_mark, 'Johns BMI: ' + BMI_john, markHigherBMI);
+console.log('Marks BMI: ' + BMI_mark, 'Johns BMI: ' + BMI_john, markHigherBMI);
 
 // 7- Strings Strings and Template Literals
 
@@ -103,7 +103,7 @@ ${1 + 1} lines`)
 
 // 8- If / Else statements
 let hour = 18
-if(hour >= 18){
+if (hour >= 18) {
     console.log('Good Afternoon!');
 }
 else {
@@ -112,12 +112,38 @@ else {
 
 // **** CODING CHALLENGE #2 ****
 
-if(BMI_john > BMI_mark){
+if (BMI_john > BMI_mark) {
     console.log('Marks BMI is less than Johns BMI');
 }
-else{
+else {
     console.log('Johns BMI is less then Marks BMI');
 }
 
 console.log(`- Johns BMI is ${BMI_john}.
 - Marks BMI is ${BMI_mark}.`);
+
+// 9-Type Conversion and Coercion
+console.log(Number('1990' + 2));
+console.log(Number('mounir', typeof Number('')));
+console.log(String(23))
+//type coercion
+console.log('I am ' + 19 + ' years old');
+console.log('100' - '10' - 50 - '20');// * , / (the same)
+
+// 10-Truthy and Falsy Values
+// 5 falsy values(they're not false but they'll come false when we want to convert them to boolean): 0, '', NULL, undefined, NaN
+console.log(Boolean(NaN))
+console.log(Boolean('c'));
+console.log(Boolean({}))
+let money = 0
+if (money) {
+    console.log('Good');
+} else {
+    console.log('Empty');
+}
+
+// 11-Equality Operators: == vs. ===
+if (age === 19) console.log('adult');
+console.log(18 === 18, 18 == '18', 18 === '18', 18 == 18);
+let val = Number(prompt('Your Favorite Number Is: '));
+console.log(val, `The Type Of The Value Is ${typeof val}`);
