@@ -147,3 +147,33 @@ if (age === 19) console.log('adult');
 console.log(18 === 18, 18 == '18', 18 === '18', 18 == 18);
 let val = Number(prompt('Your Favorite Number Is: '));
 console.log(val, `The Type Of The Value Is ${typeof val}`);
+
+// 12- Logical Operators
+let A = true
+let B = false
+console.log(A && B);
+console.log(A || B);
+console.log(!A && B);
+console.log(!A || !B);
+
+// **** CODING CHALLENGE #3 ****
+let doliphisScore = (96 + 108 + 89) / 3
+let koalasScore = (88 + 91 + 110) / 3
+
+console.log(doliphisScore, koalasScore);
+if (doliphisScore > koalasScore) {
+    console.log(`The team of dolphin has the highest scocre whith ${doliphisScore}`);
+    if (doliphisScore < 100) {
+        console.log(`You won ---> dolphine`);
+    }
+} else if (doliphisScore < koalasScore) {
+    console.log(`The team of koala has the highest score whith ${koalasScore}`);
+    if (koalasScore < 100) {
+        console.log(`You won ---> koala`);
+    }
+} else {
+    console.log(`They have the same score ${koalasScore}`);
+    if(doliphisScore >= 100){
+        console.log(`Nobody  won`);
+    }
+}
