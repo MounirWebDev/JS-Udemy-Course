@@ -173,7 +173,54 @@ if (doliphisScore > koalasScore) {
     }
 } else {
     console.log(`They have the same score ${koalasScore}`);
-    if(doliphisScore >= 100){
+    if (doliphisScore >= 100) {
         console.log(`Nobody  won`);
     }
 }
+
+// 13-Switch Statements
+
+let day = 6
+day = 6023
+
+switch (day) {
+    case 1:
+        console.log('Sunday');
+        break;
+    case 2:
+        console.log('Monday');
+        break;
+    case 3:
+        console.log('Tuesday');
+        break;
+    case 4:
+        console.log('Wednesday');
+        break;
+    case 5:
+        console.log('Thursday');
+        break;
+    case 6:
+        console.log('Friday');
+        break;
+    case 7:
+        console.log('Saturday');
+        break;
+    default:
+        console.log('Error!');
+        break;
+}
+
+// 14- The Conditional (Ternary) Operator
+
+const amIDriving = myAge > 17 ? true : false;
+console.log(amIDriving);1
+
+// **** CODING CHALLENGE #4 ****
+
+let bill = 275
+let tip;
+
+(bill <= 300 && bill >= 50)? tip = (15 * bill) / 100 : tip = (20 * bill) / 100
+console.log(`The bill: ${bill}
+The tip: ${tip}
+The total: ${tip + bill}`);
