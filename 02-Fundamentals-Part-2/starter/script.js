@@ -73,3 +73,36 @@ function checkWinner(dolphlinsScore, koalasScore){
         return console.log("No team wins !")
     }
 }
+
+// 6- Arrays
+
+const numbers = [20, 3, 58];
+console.log(numbers, numbers[0], numbers[numbers.length - 1]);
+numbers[numbers.length] = 0
+//numbers = [0, 57, 'm'] ----> error
+
+const names = new Array("mounir", "ilhem", "mohammed")
+console.log(names);
+
+// 7-Arrays Method
+//add
+numbers.push("mounir");
+numbers.unshift("12");
+console.log(numbers);
+//remove
+names.pop();
+names.shift();
+console.log(names);
+
+console.log(numbers.indexOf(20));
+console.log(numbers.indexOf('20'));
+console.log(numbers.includes(20));
+console.log(numbers.includes('20'));
+
+// 8-Introduction To Object
+let myAge = 19; 
+const person = {
+    firstName: "Mounir",
+    lastName: "Abcire",
+    currentAge: 2023 - myAge
+}
