@@ -40,18 +40,18 @@ console.log(calcAge2(2004, 2023));
 
 // 5-Functions Calling Other Functions
 
-function myFun(){
-    let a;
-    return  a = prompt("choose ur number: ");
-}
+// function myFun(){
+//     let a;
+//     return  a = prompt("choose ur number: ");
+// }
 
-function myFun2(result){
-    result = myFun() * myFun()
-    console.log(result)
-    return result
-}
+// function myFun2(result){
+//     result = myFun() * myFun()
+//     console.log(result)
+//     return result
+// }
 
-myFun2()
+//myFun2()
 
 // **** Coding Challenge #1 ****
 const calcAverage = (x, y, z) => (x + y + z) / 3
@@ -106,3 +106,13 @@ const person = {
     lastName: "Abcire",
     currentAge: 2023 - myAge
 }
+
+// **** Coding Challenge #2 ****
+
+const calcTip = (value) =>{
+    return (value >= 50) && (value <= 300) ?  (value * 0.15) :  (value * 0.20)
+}
+const bills = [125, 555, 44]
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[bills.length - 1])] 
+const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2]+ tips[2]]
+console.log(tips, bills, total);
