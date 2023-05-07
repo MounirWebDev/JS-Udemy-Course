@@ -155,3 +155,45 @@ console.log(johnBMI, johnBMI.calcBMI());
 
 markBMI.BMIValue > johnBMI.BMIValue ? console.log(`Mark's BMI (${markBMI.BMIValue}) is higher than John's BMI (${johnBMI.BMIValue})`) : 
 console.log(`John's BMI (${johnBMI.BMIValue}) is higher than Mark's BMI (${markBMI.BMIValue})`);
+
+// 11- Iteration: The for Loop
+for (let i = 1; i < 11; i++) {
+    console.log(i);
+}
+
+// 12-Looping Arrays, Breaking and Continuing
+const years = [2004, 2003, 1989, 1999, 1975, 1980]
+const ages = []
+const CURRENT_YEAR = 2023;
+
+for(let i = 0; i < years.length; i++){
+    ages.push(CURRENT_YEAR - years[i]) // more cleaner
+    // ages[i] = CURRENT_YEAR - years[i];
+}
+
+console.log(ages);
+
+for(let i = 0; i < 10; i++){
+    if( i === years.length) continue; // 6
+    if (i === 8) break;
+    console.log(i);
+}
+
+// 13-Looping Backwards and Loops in Loops
+console.log(ages);
+for(let i = ages.length - 1; i >= 0; i--){
+    console.log(ages[i]);
+}
+
+for(let exo = 1; exo < 4; exo++){
+    for(let que = 1; que < 3; que++){
+        console.log(`Exersice number ${exo} question number ${que}`);
+    }
+}
+
+// 14-The while Loop
+
+let rep = prompt('enter your age')
+while(!rep){
+    rep = prompt('enter your age');
+}
