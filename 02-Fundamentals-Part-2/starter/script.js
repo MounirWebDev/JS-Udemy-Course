@@ -104,7 +104,12 @@ let myAge = 19;
 const person = {
     firstName: "Mounir",
     lastName: "Abcire",
-    currentAge: 2023 - myAge
+    currentAge: 2023 - myAge,
+    freinds: ['ahmed', 'ilyes'],
+    fullName: function(){
+        console.log(this);
+        return `My name is ${this.firstName + ' ' +this.lastName}`
+    }
 }
 
 // **** Coding Challenge #2 ****
@@ -116,3 +121,37 @@ const bills = [125, 555, 44]
 const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[bills.length - 1])] 
 const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2]+ tips[2]]
 console.log(tips, bills, total);
+
+// 9- Dot Vs. Brocket
+person.nationality = 'Algerian'
+console.log(`My names is ${person.firstName}, I am ${person.currentAge}, My best freind called ${person.freinds[0]}`);
+
+
+// 10- Object Methods
+console.log(person.fullName());
+
+// **** Coding Challenge #3 ****
+const markBMI = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.79,
+    calcBMI: function(){
+        return this.BMIValue = this.mass / this.height ** 2
+    }
+}
+const johnBMI = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function(){
+        this.BMIValue = this.mass / this.height ** 2
+        return this.BMIValue;
+    }
+}
+console.log('Mark info');
+console.log(markBMI, markBMI.calcBMI());
+console.log('John info');
+console.log(johnBMI, johnBMI.calcBMI());
+
+markBMI.BMIValue > johnBMI.BMIValue ? console.log(`Mark's BMI (${markBMI.BMIValue}) is higher than John's BMI (${johnBMI.BMIValue})`) : 
+console.log(`John's BMI (${johnBMI.BMIValue}) is higher than Mark's BMI (${markBMI.BMIValue})`);
