@@ -197,3 +197,27 @@ let rep = prompt('enter your age')
 while(!rep){
     rep = prompt('enter your age');
 }
+
+// **** Coding Challenge #4 ****
+
+const bills2 = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52]
+const tips2 = []
+const total2 = []
+const calcTip2 = (value) =>{
+    return (value >= 50) && (value <= 300) ?  (value * 0.15) :  (value * 0.20)
+}
+const calcAvrage2 = (arr)=>{
+    let avr = 0;
+    for(let i = 0; i < arr.length; i++){
+        avr = avr + arr[i]
+    }
+    return avr / arr.length;
+}
+for(let i = 0; i < bills2.length; i++){
+    tips2.push(calcTip2(bills2[i]));
+    total2.push(bills2[i] + tips2[i]);
+}
+console.log(bills2);
+console.log(tips2);
+console.log(total2);
+console.log(calcAvrage2(total2))
