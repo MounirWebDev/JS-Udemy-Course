@@ -2,7 +2,7 @@
 
 const x = () => {
 	const y = {
-		value: prompt('Degrees celsius'),
+		//value: prompt('Degrees celsius'),
 	};
 	// using the debugger to find the error
 	let v = +y.value + 273;
