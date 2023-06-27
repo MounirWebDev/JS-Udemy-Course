@@ -66,7 +66,8 @@ console.log(first, fourth);
 console.log(first, fourth);
 // receive 2 return values from a function
 var [starter, main] = restaurant.order(1, 1);
-console.log(restaurant.order(1, 1));
+const orderArray = restaurant.order(1, 1);
+console.log(orderArray);
 console.log(starter, main);
 
 var nested = [1, 2, [3, 4]];
@@ -190,3 +191,81 @@ console.log(restaurant.orderPizza);
 
 const guests2 = restaurant.numGuests ?? 23;
 console.log(guests2);
+
+// 7- Logical Assignment Operators &&= ||= ??=
+
+// ********* Coding Challenge #1 *********
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+// 1
+const [players1, players2] = game.players;
+console.log(players1, players2);
+// 2
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+// 3
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+// 4
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(players1Final);
+
+//5
+// const { team1, x: draw, team2 } = game.odds;
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
+//6
+game.printGoals = function (...playerNames) {
+  console.log(...playerNames);
+  console.log(playerNames.length);
+};
+game.printGoals(...game.scored);
+//7
+// if (team1 < team2) console.log('team 1 is the winner');
+// else console.log('team 2 is the winner');
+(team1 < team2) && console.log('team 1 is the winner')  ;
+(team1 > team2) && console.log('team 2 is the winner')  ;
+
+
+// 8-Looping Arrays: The for-of Loop
