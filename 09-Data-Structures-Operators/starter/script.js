@@ -264,8 +264,117 @@ game.printGoals(...game.scored);
 //7
 // if (team1 < team2) console.log('team 1 is the winner');
 // else console.log('team 2 is the winner');
-(team1 < team2) && console.log('team 1 is the winner')  ;
-(team1 > team2) && console.log('team 2 is the winner')  ;
-
+team1 < team2 && console.log('team 1 is the winner');
+team1 > team2 && console.log('team 2 is the winner');
 
 // 8-Looping Arrays: The for-of Loop
+const menu2 = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const item of menu2) console.log(item);
+for (const [index, item] of menu2.entries()) {
+  console.log(menu2);
+  console.log(...menu2.entries());
+  // const [a, b] = item;
+  // console.log(`${item[0]}: ${item[1]}`);
+  console.log(`${index}: ${item}`);
+}
+
+// 9-Enhanced Object Literals
+
+const person1 = {
+  name: 'Mounir',
+  age: 19,
+};
+
+const person2 = {
+  name: 'Mohammed',
+  age: 13,
+};
+const weeks = ['mon', 'thu', 'fri'];
+const persons = {
+  // BEFOR ES6
+  // person1: person1,
+  // person2: person2,
+
+  //ES6
+  person1,
+  person2,
+
+  // BEFOR ES6
+  // calcAge: function ({ age: age1 }, { age: age2 }) {
+  //   console.log(age1, age2);
+  //   console.log(age1 + age2);
+  // },
+
+  //ES6
+  calcAge({ age: age1 }, { age: age2 }) {
+    console.log(age1, age2);
+    console.log(age1 + age2);
+  },
+  // also we can use expression on properties inside []
+  [`the day-${1 + 8}`]: 'string...',
+  [weeks[0]]: 'one of the weeks',
+};
+
+console.log(persons);
+persons.calcAge(persons.person1, persons.person2);
+
+// 10-Optional Chaining (?.)
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of weekdays) {
+  const open = restaurant.openingHours?.[day]?.open ?? 'Cloed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// Methods
+console.log(restaurant.order?.(0, 0) ?? "this method doesn't exist!");
+console.log(restaurant.orderNow?.(0, 0) ?? "this method doesn't exist!");
+
+// Arrays
+const users = [
+  {
+    name: 'Mounir',
+    email: 'mounirabcire@gmail.com',
+  },
+];
+
+console.log(users[0]?.name ?? 'User array is empty');
+console.log(users[1]?.name ?? 'User array is empty');
+
+// 11-Looping Objects: Object Keys, Values, and Entries
+const daysProperties = Object.keys(restaurant.openingHours);
+let open = `we are opening ${daysProperties.length} days, `;
+for (const day of daysProperties) open += `${day}, `;
+console.log(open);
+
+console.log(Object.values(hours));
+console.log(Object.entries(restaurant.openingHours));
+for (const [day, { open, close }] of Object.entries(restaurant.openingHours)) {
+  console.log(`On ${day}, we open at ${open} and we close at ${close}`);
+}
+
+// ********* Coding Challenge #2 *********
+//1
+for (const [
+  playersNamesGoal_index,
+  playersNamesGoal_value,
+] of game.scored.entries()) {
+  console.log(`Goal ${playersNamesGoal_index + 1}: ${playersNamesGoal_value}`);
+}
+//2
+let average = 0;
+for (const odd of Object.values(game.odds)) average += odd;
+average /= Object.values(game.odds).length;
+console.log(average);
+
+//3
+for (const [key, value] of Object.entries(game.odds)) {
+  let teamStr = key === 'x' ? 'draw' : `victory ${game[key]}`;
+  console.log(`Odd of ${teamStr}: ${value}`);
+}
+// bonus
+const scorers = {};
+for (const [, player] of game.scored.entries()) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+
+console.log(scorers)
