@@ -377,4 +377,118 @@ for (const [, player] of game.scored.entries()) {
   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
 
-console.log(scorers)
+console.log(scorers);
+
+// 12-Sets
+const foodsSet = new Set([
+  'tomato',
+  'potato',
+  'jam',
+  'bread',
+  'potato',
+  'potato',
+]);
+
+console.log(foodsSet);
+console.log(foodsSet.size);
+console.log(foodsSet.has('tomato'), foodsSet.has('onion'));
+// console.log(foodsSet.clear());
+console.log(foodsSet.delete('tomato'));
+console.log(foodsSet);
+console.log(foodsSet.add('egg'));
+console.log(foodsSet.add(2));
+for (const food of foodsSet) {
+  console.log(food);
+}
+// convert array to set
+const myArr = ['Mounir', 'Mohammed', 'Ilhem', 'Mounir', 'Mounir', 'Mohammed'];
+const myArrSet = new Set(myArr);
+console.log(myArrSet);
+const myArr2 = [...myArrSet];
+console.log(myArr2);
+// string
+console.log(new Set('Mounir Abcire'));
+console.log(new Set('Mounir Abcire').size);
+
+// 13- Maps
+const question = new Map([
+  ['question', 'what language do we learn?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'Python'],
+  [4, 'JavaScript'],
+  [5, 'PHP'],
+  ['correctAnswer', 4],
+  [true, 'Correct'],
+  [false, 'Try Again!'],
+]);
+console.log(`The question is: ${question.get('question')}`);
+for (const [key, value] of question.entries()) {
+  if (typeof key === 'number') console.log(`${key}: ${value}`);
+}
+//const answer = Number(prompt('Your answer is number: '));
+const answer = 4;
+// answer === question.get('correctAnswer')
+//   ? console.log(question.get(true))
+//   : console.log(question.get(false));
+console.log(question.get(question.get('correctAnswer') === answer));
+// obj to map
+console.log(Object.entries(hours));
+const hoursMap = new Map(Object.entries(hours));
+console.log(hoursMap);
+// map to array
+console.log([...question.entries()]);
+console.log(question.entries());
+console.log(question.keys());
+console.log(question.values());
+
+// ********* Coding Challenge #3 *********
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+// 1
+const eventSet = new Set();
+for (const [minute, event] of gameEvents.entries()) {
+  eventSet.add(event);
+}
+const eventArray = [...eventSet];
+console.log(eventArray);
+
+// const events = [...new Set(gameEvents.values())]
+// console.log(events)
+
+//2
+gameEvents.delete(64);
+console.log(gameEvents);
+
+//3
+
+console.log(
+  `An event happened, on average, every ${
+    [...gameEvents.keys()][[...gameEvents.keys()].length - 1] / gameEvents.size
+  } minutes`
+);
+
+// 4-
+let text = '[First Half]====>  '
+let i = true;
+for (const [minute, event] of gameEvents) {
+  if(minute > 45 && i === true){
+    text+='[Second Half]====>  ';
+    i = !i;
+  }
+
+  text+=`${minute}: ${event}
+  `
+}
+console.log(text)
