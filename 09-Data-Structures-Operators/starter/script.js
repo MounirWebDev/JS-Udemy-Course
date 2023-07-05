@@ -480,15 +480,55 @@ console.log(
 );
 
 // 4-
-let text = '[First Half]====>  '
+let text = '[First Half]====>  ';
 let i = true;
 for (const [minute, event] of gameEvents) {
-  if(minute > 45 && i === true){
-    text+='[Second Half]====>  ';
+  if (minute > 45 && i === true) {
+    text += '[Second Half]====>  ';
     i = !i;
   }
 
-  text+=`${minute}: ${event}
-  `
+  text += `${minute}: ${event}
+  `;
 }
-console.log(text)
+console.log(text);
+
+// 14- Working With Strings
+
+let str = 'Abcire Mounir';
+console.log(str[0], str[str.length - 1]);
+console.log(str.indexOf('A'), str.indexOf('Mounir'));
+console.log(str.indexOf('r'), str.lastIndexOf('r'));
+console.log(str.slice(0, str.indexOf(' ')));
+console.log(str.slice(-str.indexOf('Mounir') + 1));
+
+console.log(str.toLowerCase(), str.toUpperCase());
+let email = '  mOunIrabcire@GmAil.Com  ';
+email = email.toLocaleLowerCase().trim();
+email.endsWith('@gmail.com')
+  ? console.log('Correct Email!')
+  : console.log('Wrong Email! Type Your Email Again!');
+
+console.log(str.replace('Abcire', 'Mounir'));
+
+function capitalizeName(fullName) {
+  let name = fullName.split(' ');
+  let capitalization = '';
+  for (const n of name) {
+    capitalization += `${n.replace(n[0], n[0].toUpperCase())} `;
+  }
+  console.log(capitalization);
+}
+capitalizeName('mounir abcire');
+capitalizeName('benhammada houari lahcen');
+capitalizeName('add hammadou zakaria');
+capitalizeName('mounirou');
+
+function maskCreditCard(number) {
+  let sliceNumber = number.toString().slice(-4);
+  let paddedSlcieNumber = sliceNumber.padStart(number.toString().length, '-');
+  console.log(paddedSlcieNumber);
+}
+maskCreditCard(645941948941949);
+maskCreditCard(64182822481877);
+maskCreditCard(184419489);
