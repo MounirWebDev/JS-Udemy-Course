@@ -270,8 +270,8 @@ team1 > team2 && console.log('team 2 is the winner');
 // 8-Looping Arrays: The for-of Loop
 const menu2 = [...restaurant.starterMenu, ...restaurant.mainMenu];
 for (const item of menu2) console.log(item);
+console.log(menu2);
 for (const [index, item] of menu2.entries()) {
-  console.log(menu2);
   console.log(...menu2.entries());
   // const [a, b] = item;
   // console.log(`${item[0]}: ${item[1]}`);
@@ -532,3 +532,5 @@ function maskCreditCard(number) {
 maskCreditCard(645941948941949);
 maskCreditCard(64182822481877);
 maskCreditCard(184419489);
+
+console.log(...[1, 2, 3]);
