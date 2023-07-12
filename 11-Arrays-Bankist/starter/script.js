@@ -1,7 +1,5 @@
 'use strict';
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
 // BANKIST APP
 
 // Data
@@ -13,7 +11,7 @@ const account1 = {
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
+  owner: 'Mounir Abcire',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
@@ -61,6 +59,68 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayAllMovements = arrayMovements => {
+  containerMovements.innerHTML = '';
+  arrayMovements.forEach((movement, movementNumber) => {
+    const typeMovement = movement > 0 ? 'deposit' : 'withdrawal';
+    const htmlMovement = `
+      <div class="movements__row">
+        <div class="movements__type movements__type--${typeMovement}">${
+      movementNumber + 1
+    } ${typeMovement}</div>
+        <div class="movements__date">3 days ago</div>
+        <div class="movements__value">${movement}€</div>
+      </div>
+    `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', htmlMovement);
+  });
+};
+const calcBalance = movements => {
+  const balance = movements.reduce((total, mov) => {
+    return total + mov;
+  }, 0);
+
+  labelBalance.textContent = balance + '€';
+};
+const calcSummary = movements => {
+  const posSummary = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov);
+  const negSummary = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov);
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter(int => int >= 1)
+    .reduce((acc, int) => acc + int);
+
+  labelSumIn.textContent = posSummary + '€';
+  labelSumOut.textContent = Math.abs(negSummary) + '€';
+  labelSumInterest.textContent = interest + '€';
+  console.log(posSummary, negSummary);
+};
+const handleUserName = accs => {
+  accs.forEach(account => {
+    account.userName = account.owner
+      .split(' ')
+      .map(n => {
+        return n.at(0).toLowerCase();
+      })
+      .join('');
+  });
+};
+btnLogin.addEventListener('click', () => {
+  const userName = inputLoginUsername.value;
+
+  console.log(userName);
+});
+displayAllMovements(account2.movements);
+calcBalance(account2.movements);
+calcSummary(account1.movements);
+handleUserName(accounts);
+console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -73,4 +133,16 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+movements.forEach((value, index, array) => {
+  value > 0
+    ? console.log(`You deposited ${value}`)
+    : console.log(`You withdraw ${Math.abs(value)}`);
+});
+
+//MAX value
+const maxValue = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, -Infinity);
+console.log(maxValue);
 /////////////////////////////////////////////////
