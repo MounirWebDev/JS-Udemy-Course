@@ -60,6 +60,7 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 let currentAccount;
+let sorted = false;
 const handleUserName = accs => {
   accs.forEach(account => {
     account.userName = account.owner
@@ -77,9 +78,12 @@ const updateUi = acc => {
 };
 handleUserName(accounts);
 console.log(accounts);
-const displayAllMovements = acc => {
+const displayAllMovements = (acc, sorted = false) => {
   containerMovements.innerHTML = '';
-  acc.movements.forEach((movement, movementNumber) => {
+  const sortedMovements = sorted
+    ? [...acc.movements].sort((a, b) => a - b)
+    : acc.movements;
+  sortedMovements.forEach((movement, movementNumber) => {
     const typeMovement = movement > 0 ? 'deposit' : 'withdrawal';
     const htmlMovement = `
       <div class="movements__row">
@@ -176,8 +180,13 @@ btnLoan.addEventListener('click', e => {
   ) {
     currentAccount.movements.push(amount);
     updateUi(currentAccount);
-    inputLoanAmount.value = ''
+    inputLoanAmount.value = '';
   }
+});
+btnSort.addEventListener('click', e => {
+  e.preventDefault();
+
+  displayAllMovements(currentAccount, (sorted = !sorted));
 });
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -204,3 +213,14 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // }, -Infinity);
 // console.log(maxValue);
 /////////////////////////////////////////////////
+console.log(movements);
+console.log(movements.fill(0));
+console.log(new Array(10).fill(0));
+console.log(Array.from({ length: 10 }, (_, i) => i + 1));
+labelBalance.addEventListener('click', () => {
+  const m = Array.from(
+    document.querySelectorAll('.movements__value'),
+    (currentEle, index) => Number(currentEle.textContent.replace('€', ''))
+  );
+  console.log(m);
+});
